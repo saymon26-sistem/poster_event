@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spot: Music Event</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1e1e1e;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .poster {
+            max-width: 800px;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(145deg, #444, #222);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        .poster h1 {
+            text-align: center;
+            font-size: 3em;
+            margin: 0.5em 0;
+            font-family: 'Pacifico', cursive;
+            color: #FFD700;
+            text-shadow: 2px 2px #000;
+        }
+        .poster p {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 0.5em 0;
+        }
+        .sections {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .section {
+            padding: 10px;
+            background-color: #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        .section:hover {
+            transform: scale(1.05);
+        }
+        .section h2 {
+            text-align: center;
+            font-size: 1.5em;
+            color: #FF6347;
+            text-shadow: 1px 1px #000;
+            margin-bottom: 10px;
+        }
+        .section h2::before {
+            content: '🎸 ';
+            font-size: 1.2em;
+        }
+        .section img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #FF6347;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .button:hover {
+            background-color: #FF4500;
+            transform: scale(1.05);
+        }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .modal-content {
+            background-color: #333;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .modal-header,
+        .modal-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-header h2 {
+            margin: 0;
+        }
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .modal img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .artist-name {
+            text-align: center;
+            font-size: 1.5em;
+            color: #FFD700;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <h1>Spot: Music Event</h1>
+        <p>It's an event for different genres such as rock, rap, and electronic music. A crossover music event that includes a tent with tattoo artists, an arcade zone, and a zone for extreme sports.</p>
+        <div class="sections">
+            <div class="section">
+                <h2>Rock Stage</h2>
+                <img src="https://get.pxhere.com/photo/light-concert-light-show-stage-performance-entertainment-nightclub-performing-arts-rock-concert-musical-theatre-stage-design-737828.jpg" alt="Rock Stage" class="clickable">
+            </div>
+            <div class="section">
+                <h2>Rap Zone</h2>
+                <img src="https://i.scdn.co/image/ab67616d0000b2731f42c2d35169b1520829e4bb" alt="Rap Zone" class="clickable">
+            </div>
+            <div class="section">
+                <h2>Electronic Tent</h2>
+                <img src="https://cdn.forbes.com.mx/2016/08/musica-electronica.jpg" alt="Electronic Tent" class="clickable">
+            </div>
+            <div class="section">
+                <h2>Tattoo Artists</h2>
+                <img src="http://www.tattooaholic.com/wp-content/uploads/2017/02/tattoo-artist-pp-1.jpg" alt="Tattoo Artists" class="clickable">
+            </div>
+            <div class="section">
+                <h2>Arcade Zone</h2>
+                <img src="https://lirp-cdn.multiscreensite.com/3382f3dd/dms3rep/multi/opt/IMG_7126_7_8Interior01-1920w.jpg" alt="Arcade Zone" class="clickable">
+            </div>
+            <div class="section">
+                <h2>Extreme Sports</h2>
+                <img src="https://www.alamy.com/blog/wp-content/uploads/2015/01/E8FW6T.jpg" alt="Extreme Sports" class="clickable">
+            </div>
+        </div>
+        <button class="button" id="contactBtn">Contact Us</button>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Contact Us</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Email: info@musicfestival.com</p>
+                <p>Phone: +123 456 7890</p>
+            </div>
+            <div class="modal-footer">
+                <button class="button close">Close</button>
+            </div>
+        </div>
+    </div>
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="" alt="Large Image">
+            <p class="artist-name" id="artistName"></p>
+        </div>
+    </div>
+    <script>
+        // Modal for contact information
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("contactBtn");
+        var closeButtons = document.getElementsByClassName("close");
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        for (var i = 0; i < closeButtons.length; i++) {
+            closeButtons[i].onclick = function() {
+                modal.style.display = "none";
+                imageModal.style.display = "none";
+            }
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal || event.target == imageModal) {
+                modal.style.display = "none";
+                imageModal.style.display = "none";
+            }
+        }
+
+        // List of artists
+        var artists = {
+            "Rock Stage": ["Led Zeppelin", "Queen", "The Rolling Stones"],
+            "Rap Zone": ["Eminem", "Kendrick Lamar", "Jay-Z"],
+            "Electronic Tent": ["Daft Punk", "Calvin Harris", "Deadmau5"],
